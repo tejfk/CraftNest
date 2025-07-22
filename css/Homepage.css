@@ -1,0 +1,245 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #9f7f60, #fffcf7);
+    
+}
+
+/* Header, Logo, and Navigation */
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: white;
+    height: 90px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+/* This is the key rule that moves the navigation to the right */
+nav {
+    margin-left: auto; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 350;
+    font-size: 2rem; /* Adjusted for better fit */
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    border-color: #b38b6d;
+}
+
+nav ul li a.active {
+    border-color: #332219;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 600px;
+    color: #fff;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-search-container {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-search-container i {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.hero-search-container input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.hero-search-container input::placeholder {
+    color: #ddd;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    background-color: #332219;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #5a4536;
+}
+
+/* About Us Section */
+.about {
+    padding: 60px 5%;
+    background: linear-gradient(to right, #9f7f60, #fffcf7);
+    text-align: center;
+    color: #fff;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #f0e6dd;
+}
+
+/* Artisan's Stories Slideshow */
+.stories-section {
+    padding: 0;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-color: #333;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    animation: fadeEffect 1.5s;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    width: 80%;
+    max-width: 700px;
+}
+
+.slide-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.slide-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.artist-name {
+    display: block;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.next { right: 0; }
+.prev { left: 0; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeEffect {
+  from {opacity: .4}
+  to {opacity: 1}
+}

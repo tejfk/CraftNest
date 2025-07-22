@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#9f7f60,#f4e1c0)
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.craft-text {
+    position: absolute;
+    top: -70px;
+    left: 35%;
+    transform: translateX(-75%);
+    display: flex;
+    justify-content: center;
+}
+
+.letter {
+    font-family: 'Cardo', serif;
+    font-size: 5rem;
+    color: #4a3728;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.letter:nth-child(1) { /* C */
+    transform: translateY(15px) rotate(-25deg);
+}
+
+.letter:nth-child(2) { /* r */
+    transform: translateY(7px) rotate(-15deg);
+}
+
+.letter:nth-child(3) { /* a */
+    transform: translateY(0) rotate(0deg);
+}
+
+.letter:nth-child(4) { /* f */
+    transform: translateY(7px) rotate(15deg);
+}
+
+.letter:nth-child(5) { /* t */
+    transform: translateY(15px) rotate(25deg);
+}
+
+.nest-text {
+    font-family: 'Cardo', serif;
+    font-size: 11rem;
+    color: #4a3728;
+    font-weight: 700;
+}
+
+.signup-container {
+    background-color: white;
+    padding: 2rem 2rem 6.75rem 2rem; /* Adjusted bottom padding to match Sign Up form height */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 80%;
+    max-width: 300px;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 25px;
+    background-color: #f5f5dc;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #999;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    background-color: #f0e6c8;
+}
+
+button {
+    width: 80%;
+    max-width: 130px;
+    padding: 0.75rem;
+    background-color: #f0ebda;
+    border: none;
+    border-radius: 25px;
+    color: #333;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #c19b76;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login-link p {
+    color: #333;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-link a {
+    color: #4a3728;
+    text-decoration: underline;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .signup-container {
+        max-width: 90%;
+    }
+}

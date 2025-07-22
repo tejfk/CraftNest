@@ -1,0 +1,119 @@
+body {
+  background: linear-gradient(to right, #9f7f60, #fffcf7);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem 1rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid black;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 48rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.profile-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-image {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  border: 4px solid #8B5A2B;
+}
+
+.profile-details {
+  margin-left: 1.5rem;
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.profile-id {
+  color: #4B5563;
+}
+
+.edit-profile-btn {
+  color: #2563EB;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+  text-decoration: underline;
+}
+
+.settings-link {
+  color: black;
+  text-decoration: none;
+}
+
+.settings-link:hover {
+  text-decoration: underline;
+}
+
+.admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.action-link {
+  color: black;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+}

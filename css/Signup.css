@@ -1,0 +1,192 @@
+/* css/Signup.css */
+
+body {
+    margin: 0;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#9f7f60,#f4e1c0)
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+}
+
+.logo-container {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    color: #4a3728;
+}
+
+.craft-text {
+    position: absolute;
+    top: -80px;
+    display: flex;
+}
+
+.letter {
+    font-family: 'Cardo', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.letter:nth-child(1) { transform: translateY(15px) rotate(-25deg); }
+.letter:nth-child(2) { transform: translateY(7px) rotate(-15deg); }
+.letter:nth-child(3) { transform: translateY(0) rotate(0deg); }
+.letter:nth-child(4) { transform: translateY(7px) rotate(15deg); }
+.letter:nth-child(5) { transform: translateY(15px) rotate(25deg); }
+
+.nest-text {
+    font-family: 'Cardo', serif;
+    font-size: 11rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.signup-container {
+    flex-basis: 40%;
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+/* NEW: Layout for side-by-side inputs */
+.form-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+.form-group.half-width {
+    width: 50%;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 8px; /* Slightly less rounded */
+    background-color: #f3efe9;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    color: #333;
+}
+
+input::placeholder {
+    color: #a09285;
+}
+
+input:focus {
+    outline: 2px solid #b38b6d;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: #f3efe9;
+    border: 1px solid #e0dace;
+    border-radius: 8px;
+    color: #4a3728;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #e0dace;
+    border-color: #b38b6d;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: #4a3728;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Error message styling */
+.error-message {
+    background-color: #fce4e4;
+    color: #e76f51;
+    border: 1px solid #e76f51;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+.error-message ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        gap: 3rem;
+        padding-top: 2rem;
+    }
+    .logo-container { flex-basis: auto; }
+    .signup-container { flex-basis: auto; max-width: 450px; width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .form-row {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    .form-group.half-width {
+        width: 100%;
+    }
+}

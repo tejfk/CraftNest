@@ -1,0 +1,213 @@
+/* General Styles & Body */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+     background: linear-gradient(to right, #d2b48c 0%, #f5f5dc 25%, #f5f5dc 100%);
+}
+
+/* Header, Logo, and Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #fff;
+    height: 90px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ========= LOGO STYLES HAVE BEEN REPLACED ========= */
+/* The old .logo-craft and .logo-nest rules have been removed. */
+.logo {
+    /* This flex setting helps vertically align the image if needed */
+    display: flex;
+    align-items: center;
+}
+
+/* This new rule styles your logo image */
+.logo img {
+    width: 150px; /* Adjust this value to get the perfect size */
+    height: auto; /* Keeps the image from stretching */
+}
+/* ================================================= */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 300;
+    font-size: 2rem;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    border-color: #b38b6d;
+}
+
+nav ul li a.active {
+    border-color: #332219;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background: url('../img/bg.jpg') center/cover no-repeat;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-content button {
+    background-color: #332219;
+    border: none;
+    padding: 15px 30px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content button:hover {
+    background-color: #5a4536;
+}
+
+/* Footer (About Us) */
+footer.about {
+    background-color: #fff;
+    text-align: center;
+    padding: 60px 2rem;
+}
+
+footer.about h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #332219;
+    margin-bottom: 1rem;
+}
+
+footer.about p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #555;
+}
+/* ADD THESE STYLES TO THE END OF YOUR CSS FILE */
+
+/* Featured Products Section */
+.featured-products {
+    padding: 60px 5%;
+    background-color: #fdfaf5; /* A very light cream background */
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #332219;
+    margin-bottom: 2.5rem;
+}
+
+/* Grid for the products */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Link that wraps the card */
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Individual Product Card Styling */
+.product-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1rem 1rem 0.25rem;
+}
+
+.product-card .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #332219;
+    margin: 0 1rem 1rem;
+}
