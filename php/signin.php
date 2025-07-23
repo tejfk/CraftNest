@@ -1,3 +1,76 @@
+ <?php
+// --- UPGRADED LOGIN LOGIC ---
+session_start();
+require_once './db_connect.php'; // Ensure db_connect.php is in the same directory or adjust path
+
+$error_message = ''; // Variable to hold any error messages
+
+// --- Check for success message from signup page ---
+$success_message = '';
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $success_message = 'Account created successfully! Please sign in.';
+}
+
+// --- Process Login Submission ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Note: Your form uses 'username' for the input field. We'll treat it as either username or email.
+    $username_or_email = htmlspecialchars($_POST['username']);
+    $password = $_POST['password'];
+
+    if (empty($username_or_email) || empty($password)) {
+        $error_message = 'Username and Password are required.';
+    } else {
+        // Step 1: Check if the login matches an ADMIN account
+        $stmt_admin = $conn->prepare("SELECT admin_id, username, password_hash FROM admins WHERE username = ?");
+        $stmt_admin->bind_param("s", $username_or_email);
+        $stmt_admin->execute();
+        $result_admin = $stmt_admin->get_result();
+
+        if ($admin = $result_admin->fetch_assoc()) {
+            if (password_verify($password, $admin['password_hash'])) {
+                // Admin login successful
+                session_regenerate_id(true);
+                $_SESSION['admin_id'] = $admin['admin_id'];
+                $_SESSION['admin_username'] = $admin['username'];
+                header('Location: ../admin/admin_dashboard.php'); // Redirect to admin dashboard
+                exit();
+            }
+        }
+        $stmt_admin->close();
+        
+        // Step 2: If not an admin, check for a regular USER account
+        // Assuming users can log in with username OR email
+        $query = "SELECT user_id, username, password_hash, is_seller FROM users WHERE username = ? OR email = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ss", $username_or_email, $username_or_email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($user = $result->fetch_assoc()) {
+            if (password_verify($password, $user['password_hash'])) {
+                // User login successful
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['is_seller'] = $user['is_seller'];
+
+                if ($_SESSION['is_seller'] == 1) {
+                    header('Location: seller_home.php');
+                } else {
+                    header('Location: home.php');
+                }
+                exit();
+            }
+        }
+        
+        // Step 3: If neither check passed, set a generic error message
+        $error_message = 'Incorrect username or password.';
+        
+        $stmt->close();
+    }
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,53 +111,7 @@
         </div>
         <div class="signup-container">
             <h2>Sign In</h2>
-            <?php
-            session_start();
-            require_once './db_connect.php';
-
-            // --- Check for success message from signup page ---
-            if (isset($_GET['success']) && $_GET['success'] == 1) {
-                echo '<p class="success-message">Account created successfully! Please sign in.</p>';
-            }
-
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $username = htmlspecialchars($_POST['username']);
-                $password = $_POST['password'];
-
-                if (empty($username) || empty($password)) {
-                     echo '<p class="error-message">Username and Password are required.</p>';
-                } else {
-                    $query = "SELECT user_id, username, password_hash, is_seller FROM users WHERE username = ?";
-                    $stmt = $conn->prepare($query);
-                    $stmt->bind_param("s", $username);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-
-                    if ($user = $result->fetch_assoc()) {
-                        if (password_verify($password, $user['password_hash'])) {
-                            // Password is correct, set session variables
-                            $_SESSION['user_id'] = $user['user_id'];
-                            $_SESSION['username'] = $user['username'];
-                            $_SESSION['is_seller'] = $user['is_seller'];
-
-                            // Role-based redirection
-                            if ($_SESSION['is_seller'] == 1) {
-                                header('Location: seller_home.php');
-                            } else {
-                                header('Location: home.php');
-                            }
-                            exit(); // Always exit after a header redirect
-                        } else {
-                            echo '<p class="error-message">Incorrect password.</p>';
-                        }
-                    } else {
-                        echo '<p class="error-message">Username not found.</p>';
-                    }
-                    $stmt->close();
-                }
-                $conn->close();
-            }
-            ?>
+           
             <form method="POST" action="signin.php">
                 <div class="form-group">
                     <input type="text" name="username" placeholder="Username" required>
